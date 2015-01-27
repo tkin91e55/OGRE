@@ -7,6 +7,7 @@ Filename:    BasicTutorial2.h
 #define __BasicTutorial2_h_
 
 #include "BaseApplication.h"
+using namespace Ogre;
 
 class BasicTutorial2 : public BaseApplication
 {
