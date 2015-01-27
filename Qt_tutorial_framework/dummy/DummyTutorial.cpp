@@ -1,33 +1,27 @@
 /*
 -----------------------------------------------------------------------------
-Filename:    BasicTutorial2.cpp
+Filename:    DummyTutorial.cpp
 -----------------------------------------------------------------------------
 */
-#include "BasicTutorial2.h"
+#include "DummyTutorial.h"
 
 //-------------------------------------------------------------------------------------
-BasicTutorial2::BasicTutorial2(void)
+DummyTutorial::DummyTutorial(void)
 {
 }
 //-------------------------------------------------------------------------------------
-BasicTutorial2::~BasicTutorial2(void)
+DummyTutorial::~DummyTutorial(void)
 {
 }
 
 //-------------------------------------------------------------------------------------
-void BasicTutorial2::createScene(void)
+void DummyTutorial::createScene(void)
 {
     // create your scene here :)
 
 }
 
-void BasicTutorial2::createViewports(void)
-{
-}
 
-void BasicTutorial2::createScene(void)
-{
-}
 
 #if OGRE_PLATFORM == OGRE_PLATFORM_WIN32
 #define WIN32_LEAN_AND_MEAN
@@ -45,7 +39,7 @@ extern "C" {
 #endif
     {
         // Create application object
-        BasicTutorial2 app;
+        DummyTutorial app;
 
         try {
             app.go();

@@ -1,18 +1,18 @@
 /*
 -----------------------------------------------------------------------------
-Filename:    BasicTutorial2.h
+Filename:    DummyTutorial.h
 -----------------------------------------------------------------------------
 */
-#ifndef __BasicTutorial2_h_
-#define __BasicTutorial2_h_
+#ifndef __DummyTutorial_h_
+#define __DummyTutorial_h_
 
 #include "BaseApplication.h"
 
-class BasicTutorial2 : public BaseApplication
+class DummyTutorial : public BaseApplication
 {
 public:
-    BasicTutorial2(void);
-    virtual ~BasicTutorial2(void);
+    DummyTutorial(void);
+    virtual ~DummyTutorial(void);
 
 protected:
     virtual void createScene(void);
@@ -20,4 +20,4 @@ protected:
     virtual void createViewports(void);
 };
 
-#endif // #ifndef __BasicTutorial2_h_
+#endif // #ifndef __DummyTutorial_h_
