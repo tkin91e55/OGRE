@@ -90,6 +90,7 @@ extern "C" {
     int main(int argc, char *argv[])
 #endif
     {
+        std::cout << "Ogre::Math::PI is : " <<Math::PI << std::endl;
         // Create application object
         BasicTutorial2 app;
 
