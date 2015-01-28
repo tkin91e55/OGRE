@@ -7,7 +7,6 @@ Filename:    BasicTutorial3.h
 #define __BasicTutorial3_h_
 
 #include "BaseApplication.h"
-#include
 using namespace Ogre;
 
 class BasicTutorial3 : public BaseApplication
@@ -31,7 +30,7 @@ protected:
     //virtual void createViewports(void);
     virtual void createFrameListener(void);
     virtual void destroyScene(void);
-    virtual bool frameRenderingQueued(FrameEvent& evt);
+    virtual bool frameRenderingQueued(const FrameEvent& evt);
 };
 
 #endif // #ifndef __BasicTutorial3_h_

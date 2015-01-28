@@ -58,7 +58,7 @@ find_package(OGRE REQUIRED)
 #   found at /usr/local/lib/OGRE/cmake/
 if (OGRE_Terrain_FOUND)
 # pretty sure the following include is unneeded
-  # include_directories(${OGRE_Terrain_INCLUDE_DIRS})
+   include_directories(${OGRE_Terrain_INCLUDE_DIRS})
 # append OgreTerrain to the end of the OGRE_LIBRARIES variable
   set(OGRE_LIBRARIES ${OGRE_LIBRARIES} ${OGRE_Terrain_LIBRARIES})
   message(STATUS "Found OGRE_Terrain: ${OGRE_Terrain_LIBRARIES}")
