@@ -33,6 +33,7 @@ BaseApplication::BaseApplication(void)
     mMouse(0),
     mKeyboard(0)
 {
+    std::cout << "BaseApplication::BaseApplication() called" << std::endl;
 }
 
 //-------------------------------------------------------------------------------------
