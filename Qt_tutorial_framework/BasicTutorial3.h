@@ -7,6 +7,8 @@ Filename:    BasicTutorial3.h
 #define __BasicTutorial3_h_
 
 #include "BaseApplication.h"
+#include <Terrain/OgreTerrain.h>
+#include <Terrain/OgreTerrainGroup.h>
 using namespace Ogre;
 
 class BasicTutorial3 : public BaseApplication
