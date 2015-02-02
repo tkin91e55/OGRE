@@ -14,7 +14,7 @@ using namespace Ogre;
 class BasicTutorial3 : public BaseApplication
 {
 private:
-    TerrainGlobalOptions mTerrainGlobals;
+    TerrainGlobalOptions* mTerrainGlobals;
     TerrainGroup* mTerrainGroup;
     bool mTerrainsImported;
 
