@@ -54,20 +54,20 @@ void BasicTutorial2::createScene(void)
        pointLight->setType(Ogre::Light::LT_POINT);
        pointLight->setPosition(Ogre::Vector3(0, 150, 250));
 
-       pointLight->setDiffuseColour(1.0, 0.0, 0.0);
-       pointLight->setSpecularColour(1.0, 0.0, 0.0);
+       pointLight->setDiffuseColour(1.0, 1.0, 1.0);
+       pointLight->setSpecularColour(1.0, 1.0, 1.0);
 
        Ogre::Light* directionalLight = mSceneMgr->createLight("directionalLight");
        directionalLight->setType(Ogre::Light::LT_DIRECTIONAL);
-       directionalLight->setDiffuseColour(Ogre::ColourValue(.25, .25, 0));
-       directionalLight->setSpecularColour(Ogre::ColourValue(.25, .25, 0));
+       directionalLight->setDiffuseColour(Ogre::ColourValue(.25, .25, .25));
+       directionalLight->setSpecularColour(Ogre::ColourValue(.25, .25, .25));
 
        directionalLight->setDirection(Ogre::Vector3( 0, -1, 1 ));
 
        Ogre::Light* spotLight = mSceneMgr->createLight("spotLight");
        spotLight->setType(Ogre::Light::LT_SPOTLIGHT);
-       spotLight->setDiffuseColour(0, 0, 1.0);
-       spotLight->setSpecularColour(0, 0, 1.0);
+       spotLight->setDiffuseColour(1.0, 1.0, 1.0);
+       spotLight->setSpecularColour(1.0, 1.0, 1.0);
 
        spotLight->setDirection(-1, -1, 0);
        spotLight->setPosition(Ogre::Vector3(300, 300, 0));
