@@ -131,6 +131,8 @@ void BasicTutorial3::createScene(void)
     light->setSpecularColour(ColourValue(0.4, 0.4, 0.4));
 
     mSceneMgr->setAmbientLight(ColourValue(0.2,0.2,0.2));
+    mSceneMgr->setSkyBox(true, "Examples/SpaceSkyBox");
+    //mSceneMgr->setSkyBox(true, "Examples/SpaceSkyBox", 5000, false);
 
     //Terrain part
     mTerrainGlobals = OGRE_NEW Ogre::TerrainGlobalOptions();
