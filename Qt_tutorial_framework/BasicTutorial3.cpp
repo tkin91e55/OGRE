@@ -131,8 +131,17 @@ void BasicTutorial3::createScene(void)
     light->setSpecularColour(ColourValue(0.4, 0.4, 0.4));
 
     mSceneMgr->setAmbientLight(ColourValue(0.2,0.2,0.2));
-    mSceneMgr->setSkyBox(true, "Examples/SpaceSkyBox");
-    //mSceneMgr->setSkyBox(true, "Examples/SpaceSkyBox", 5000, false);
+    //=====================================================Setting static sky
+    //mSceneMgr->setSkyBox(true, "Examples/SpaceSkyBox");
+    //mSceneMgr->setSkyBox(true, "Examples/SpaceSkyBox", 100, false);
+    //=========================================================================
+
+    //=======================================================Setting fog and dynamic sky
+    Ogre::ColourValue fadeColour(0.9, 0.9, 0.9);
+    mSceneMgr->setFog(Ogre::FOG_LINEAR, fadeColour, 0.0, 300, 600);
+    mWindow->getViewport(0)->setBackgroundColour(fadeColour);
+    mSceneMgr->setSkyDome(true, "Examples/CloudySky", 5, 8, 500);
+    //===========================================================
 
     //Terrain part
     mTerrainGlobals = OGRE_NEW Ogre::TerrainGlobalOptions();
@@ -200,7 +209,27 @@ bool BasicTutorial3::frameRenderingQueued(const Ogre::FrameEvent& evt)
     return ret;
 }
 
+void BasicTutorial3::createViewports(void)
+{
+    // Create one viewport, entire window
+    //Ogre::Viewport* vp = mWindow->addViewport(mCamera);
+    //vp->setBackgroundColour(Ogre::ColourValue(0,0,0));
 
+    // Alter the camera aspect ratio to match the viewport
+    //mCamera->setAspectRatio(
+        //Ogre::Real(vp->getActualWidth()) / Ogre::Real(vp->getActualHeight()));
+
+    std::cout << "BasicTutorial3::createViewports() is called" << std::endl;
+
+    BaseApplication::createViewports();
+
+    Ogre::ColourValue fadeColour(0.9, 0.9, 0.9);
+    mWindow->getViewport(0)->setBackgroundColour(fadeColour);
+
+    mSceneMgr->setFog(Ogre::FOG_LINEAR, fadeColour, 0.0, 50, 500);
+    mSceneMgr->setFog(Ogre::FOG_EXP2, fadeColour, 0.003);
+    //mSceneMgr->setFog(Ogre::FOG_EXP2, fadeColour, 0.003);
+}
 
 #if OGRE_PLATFORM == OGRE_PLATFORM_WIN32
 #define WIN32_LEAN_AND_MEAN

@@ -34,6 +34,7 @@ protected:
     virtual void createFrameListener(void);
     virtual void destroyScene(void);
     virtual bool frameRenderingQueued(const FrameEvent& evt);
+    virtual void createViewports(void);
 };
 
 #endif // #ifndef __BasicTutorial3_h_
