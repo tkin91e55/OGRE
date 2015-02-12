@@ -18,23 +18,47 @@ BasicTutorial4::~BasicTutorial4(void)
 void BasicTutorial4::createScene(void)
 {
     // create your scene here :)
+    mSceneMgr->setAmbientLight(Ogre::ColourValue(0.25, 0.25, 0.25));
 
+    Ogre::Entity* ninjaEntity = mSceneMgr->createEntity("Ninja", "ninja.mesh");
+    Ogre::SceneNode *node = mSceneMgr->getRootSceneNode()->createChildSceneNode("NinjaNode");
+    node->attachObject(ninjaEntity);
+
+    Ogre::Light* pointLight = mSceneMgr->createLight("pointLight");
+    pointLight->setType(Ogre::Light::LT_POINT);
+    pointLight->setPosition(Ogre::Vector3(250, 150, 250));
+    pointLight->setDiffuseColour(Ogre::ColourValue::White);
+    pointLight->setSpecularColour(Ogre::ColourValue::White);
 }
 
 bool BasicTutorial4::processUnbufferedInput(const Ogre::FrameEvent &evt)
 {
+    static bool mMouseDown = false;     // If a mouse button is depressed
+    static Ogre::Real mToggle = 0.0;    // The time left until next toggle
+    static Ogre::Real mRotate = 0.13;   // The rotate constant
+    static Ogre::Real mMove = 250;      // The movement constant
+
+    bool currMouse = mMouse->getMouseState().buttonDown(OIS::MB_Left);
+
+    if (currMouse && ! mMouseDown)
+    {
+        Ogre::Light* light = mSceneMgr->getLight("pointLight");
+        light->setVisible(! light->isVisible());
+    }
+
+    mMouseDown = currMouse;
+
     return true;
 }
 
 bool BasicTutorial4::frameRenderingQueued(const Ogre::FrameEvent &evt)
 {
     bool ret = BaseApplication::frameRenderingQueued(evt);
+
+    if(!processUnbufferedInput(evt)) return false;
+
     return ret;
 }
-
-virtual bool frameStarted(const FrameEvent& evt);
-virtual bool frameRenderingQueued(const FrameEvent& evt);
-virtual bool frameEnded(const FrameEvent& evt);
 
 #if OGRE_PLATFORM == OGRE_PLATFORM_WIN32
 #define WIN32_LEAN_AND_MEAN
