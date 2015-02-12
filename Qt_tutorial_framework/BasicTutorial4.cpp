@@ -48,6 +48,7 @@ bool BasicTutorial4::processUnbufferedInput(const Ogre::FrameEvent &evt)
 
     mMouseDown = currMouse;
 
+        //so that no need to create a bool for each key to listen
     mToggle -= evt.timeSinceLastFrame;
 
     if ((mToggle < 0.0f ) && mKeyboard->isKeyDown(OIS::KC_1))
