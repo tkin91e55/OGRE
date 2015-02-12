@@ -48,6 +48,15 @@ bool BasicTutorial4::processUnbufferedInput(const Ogre::FrameEvent &evt)
 
     mMouseDown = currMouse;
 
+    mToggle -= evt.timeSinceLastFrame;
+
+    if ((mToggle < 0.0f ) && mKeyboard->isKeyDown(OIS::KC_1))
+    {
+        mToggle  = 0.5;
+        Ogre::Light* light = mSceneMgr->getLight("pointLight");
+        light->setVisible(! light->isVisible());
+    }
+
     return true;
 }
 
