@@ -112,7 +112,8 @@ set(HDRS
         #./TutorialApplication.h
         #./BasicTutorial2.h
         #./BasicTutorial3.h
-        ./BasicTutorial4.h
+        #./BasicTutorial4.h
+        ./BasicTutorial5.h
 )
  
 set(SRCS
@@ -120,7 +121,8 @@ set(SRCS
         #./TutorialApplication.cpp
         #./BasicTutorial2.cpp
         #./BasicTutorial3.cpp
-        ./BasicTutorial4.cpp
+        #./BasicTutorial4.cpp
+        ./BasicTutorial5.cpp
 )
  
 include_directories( ${OIS_INCLUDE_DIRS}
