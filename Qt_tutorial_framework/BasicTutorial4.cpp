@@ -93,8 +93,6 @@ bool BasicTutorial4::processUnbufferedInput(const Ogre::FrameEvent &evt)
 
     mSceneMgr->getSceneNode("NinjaNode")->translate(transVector * evt.timeSinceLastFrame, Ogre::Node::TS_LOCAL);
 
-
-
     return true;
 }
 
