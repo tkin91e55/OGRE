@@ -48,6 +48,53 @@ bool BasicTutorial4::processUnbufferedInput(const Ogre::FrameEvent &evt)
 
     mMouseDown = currMouse;
 
+    Ogre::Vector3 transVector = Ogre::Vector3::ZERO;
+
+    if (mKeyboard->isKeyDown(OIS::KC_I)) // Forward
+    {
+        transVector.z -= mMove;
+    }
+
+    if (mKeyboard->isKeyDown(OIS::KC_K)) // Backward
+    {
+        transVector.z += mMove;
+    }
+
+    if (mKeyboard->isKeyDown(OIS::KC_J)) // Left - yaw or strafe
+    {
+        if(mKeyboard->isKeyDown( OIS::KC_LSHIFT ))
+        {
+            // Yaw left
+            mSceneMgr->getSceneNode("NinjaNode")->yaw(Ogre::Degree(mRotate * 5));
+        } else {
+            transVector.x -= mMove; // Strafe left
+        }
+    }
+
+    if (mKeyboard->isKeyDown(OIS::KC_L)) // Right - yaw or strafe
+    {
+        if(mKeyboard->isKeyDown( OIS::KC_LSHIFT ))
+        {
+            // Yaw right
+            mSceneMgr->getSceneNode("NinjaNode")->yaw(Ogre::Degree(-mRotate * 5));
+        } else {
+            transVector.x += mMove; // Strafe right
+        }
+    }
+
+    if (mKeyboard->isKeyDown(OIS::KC_U)) // Up
+    {
+        transVector.y += mMove;
+    }
+    if (mKeyboard->isKeyDown(OIS::KC_O)) // Down
+    {
+        transVector.y -= mMove;
+    }
+
+    mSceneMgr->getSceneNode("NinjaNode")->translate(transVector * evt.timeSinceLastFrame, Ogre::Node::TS_LOCAL);
+
+
+
     return true;
 }
 
